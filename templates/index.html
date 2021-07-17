@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+    <head>
+      <meta charset="UTF-8">
+      <title>ML API</title>
+      <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/style1.css')}}">
+    </head>
+
+    <body>
+
+        <div class="login">
+            <h1>Predict Amount</h1>
+        
+             <!-- Main Input For Receiving Query to our ML -->
+            <form action="{{ url_for('predict')}}"method="post">
+                <label for="City">Select your City:</label>
+                    <select name="City" id="City">
+                         <option value="0">Ahemdabad</option>
+                         <option value="1">Banglore</option>
+                         <option value="2">Chennai</option>
+                         <option value="3">Delhi</option>
+                         <option value="4">Hyderabad</option>
+                         <option value="5">Kanpur</option>
+                         <option value="6">Kolkata</option>
+                         <option value="7">Lucknow</option>
+                         <option value="8">Ludhiana</option>
+                         <option value="9">Mumbai</option>
+                         <option value="10">Surat</option>
+                         <option value="11">Thiruvananthapuram</option>
+                     </select>
+                     <br>
+                     <br>
+                     <label for="Brand">Select your Brand:</label>
+                     <select name="Brand" id="Brand">
+                          <option value="0">Brand 1</option>
+                          <option value="2">Brand 2</option>
+                          <option value="3">Brand 3</option>
+                          <option value="4">Brand 4</option>
+                          <option value="5">Brand 5</option>
+                          <option value="6">Brand 6</option>
+                          <option value="7">Brand 7</option>
+                          <option value="8">Brand 8</option>
+                          <option value="9">Brand 9</option>
+                          <option value="1">Brand 10</option>
+                      </select>
+                      <br>
+                      <br>
+                      <label for="Model">Enter your Model:</label>
+                <input type="text" name="Model_Name" placeholder="Model Name" required="required"/>
+                <br>
+                <br>
+                <label for="RAM">Select your RAM:</label>
+                     <select name="RAM" id="RAM">
+                          <option value="0">Default</option>
+                          <option value="1">Feature1_1</option>
+                          <option value="12">Feature1_2</option>
+                          <option value="20">Feature1_3</option>
+                          <option value="21">Feature1_4</option>
+                          <option value="22">Feature1_5</option>
+                          <option value="23">Feature1_6</option>
+                          <option value="24">Feature1_7</option>
+                          <option value="25">Feature1_8</option>
+                          <option value="26">Feature1_9</option>
+                          <option value="2">Feature1_10</option>
+                          <option value="3">Feature1_11</option>
+                          <option value="4">Feature1_12</option>
+                          <option value="5">Feature1_13</option>
+                          <option value="6">Feature1_14</option>
+                          <option value="7">Feature1_15</option>
+                          <option value="8">Feature1_16</option>
+                          <option value="9">Feature1_17</option>
+                          <option value="10">Feature1_18</option>
+                          <option value="11">Feature1_19</option>
+                          <option value="13">Feature1_20</option>
+                          <option value="14">Feature1_21</option>
+                          <option value="15">Feature1_22</option>
+                          <option value="16">Feature1_23</option>
+                          <option value="17">Feature1_24</option>
+                          <option value="18">Feature1_25</option>
+                          <option value="19">Feature1_26</option>
+                      </select>
+                      <br>
+                      <br>
+                <label for="Internal_Memory">Select your Internal Memory:</label>
+                     <select name="Internal_Memory" id="Internal_Memory">
+                          <option value="0">Default</option>
+                          <option value="1">Feature2_1</option>
+                          <option value="2">Feature2_2</option>
+                          <option value="3">Feature2_3</option>
+                          <option value="4">Feature2_4</option>
+                          <option value="5">Feature2_5</option>
+                          <option value="6">Feature2_6</option>
+                      </select>
+                <br>
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+            <br>
+            <label for="Internal_Memory">Amount of your item for 1 Quantity: $</label>
+            {{ prediction_text }}
+
+        </div>        
+    </body>
+</html>
